@@ -5,25 +5,25 @@ import { flushSync } from 'react-dom';
 const Card = ({ image, title = 'this is yet to set', description = 'this random image is loaded from inter net', buttonText = 'click to change image' }) => {
     let [currentImage, setImage] = useState(12)
     let [currentImageUrl, setUrl] = useState(image)
-    let [isLoading, setLoading] = useState(false)
+    // add loader when learn useEffect
+    // let [isLoading, setLoading] = useState(false)
 
     const changeImage = () => {
-        setLoading(true)
         setTimeout(() => { }, 2000)
         setImage((prev) => { return prev + 1 })
         setUrl(
             "https://picsum.photos/id/" + currentImage + "/1900/1080"
         )
-        setLoading(false)
-
 
     }
 
     return (
         <div className="transition duration-150 ease-out hover:ease-in max-w-sm rounded overflow-hidden shadow-lg px-8 py-8 bg-rose-600 hover:bg-rose-800 ">
             <>
-                {isLoading && <p>Loading image</p>}
-                {!isLoading && <img className="transition-transform" src={currentImageUrl} alt={title} />}
+                {/* {isLoading && <p>Loading image</p>}
+                {!isLoading && <img className="transition-transform" src={currentImageUrl} alt={title} />} */}
+                <img className="transition-transform" src={currentImageUrl} alt={title} />
+
             </>
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{title}</div>
